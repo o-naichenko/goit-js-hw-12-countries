@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Search country info</title>
-
 </head>
 
 <body>
-  <h1 class="header">Countries info search</h1>
-  <form class="form" action="input">
-    <label class="form__label" for="country-name"></label>
-    <input class="form__input" type="text" id="country-name" placeholder="type country name here">
-  </form>
+  <div class="form__container">
+    <h1 class="header">Countries info search</h1>
+    <form class="form" action="input">
+      <label class="form__label" for="country-name"></label>
+      <input class="form__input" type="text" id="country-name" autocomplete="off" placeholder="type country name here">
+      <div id="datalist"></div>
+    </form>
+  </div>
   <div class="stats-container">
   </div>
 </body>

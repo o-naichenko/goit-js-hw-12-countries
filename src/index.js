@@ -2,25 +2,20 @@ import fetchCountries from "./fetchCountries.js";
 import countriesListMarkup from "./tpl/countriesList.hbs";
 import oneCountryMarkup from "./tpl/oneCountry.hbs";
 
-// import {
-//   alert,
-//   defaultModules,
-// } from "node_modules/@pnotify/core/dist/PNotify.js";
-// import * as PNotifyMobile from "./node_modules/@pnotify/mobile/dist/PNotifyMobile.js";
+import { error, notice } from "@pnotify/core";
+import "@pnotify/core/dist/PNotify.css";
+import "@pnotify/core/dist/BrightTheme.css";
+import "@pnotify/confirm/dist/PNotifyConfirm.css";
+
 const Handlebars = require("handlebars");
 const debounce = require("lodash.debounce");
 import "./styles.css";
 import "./index.html";
 
-let countriesArray = [];
 const inputRef = document.querySelector(".form__input");
 const resultContainerRef = document.querySelector(".stats-container");
-console.dir(resultContainerRef);
-
-// const myAlert = alert({
-//   text: "I'm an alert.",
-//   type: "info",
-// });
+const dataListRef = document.getElementById("datalist");
+let countryInfo = [];
 
 inputRef.addEventListener("input", debounce(onInputRefInput, 500));
 
@@ -32,16 +27,31 @@ function onInputRefInput(e) {
   }
 }
 
-function renderEngine(array) {
-  if (array.length > 10) {
-    // myAlert();
-  } else if (array.length > 2 && array.length <= 10) {
-    // countriesListMarkup(array);
-    resultContainerRef.innerHTML = countriesListMarkup(array);
-  } else {
-    resultContainerRef.innerHTML = oneCountryMarkup(...array);
+function renderEngine(response) {
+  checkResponse(response);
+  dataListRef.innerHTML = "";
+  resultContainerRef.innerHTML = "";
 
-    const cntr = array[0];
-    console.log(cntr.flag);
+  if (countryInfo.length >= 2 && countryInfo.length <= 10) {
+    dataListRef.innerHTML = countriesListMarkup(countryInfo);
+  } else if (countryInfo.length > 10) {
+    error({
+      text: "Too many maches found. Please, make more specific query",
+      delay: 1500,
+      fade: true,
+    });
+  } else {
+    resultContainerRef.innerHTML = oneCountryMarkup(...countryInfo);
+  }
+}
+
+function checkResponse(data) {
+  if (data.length > 0) {
+    countryInfo = data;
+  } else {
+    error({
+      text: "Please, try another combination",
+      delay: 1500,
+    });
   }
 }

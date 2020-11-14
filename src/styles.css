@@ -12,18 +12,21 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   background-image: linear-gradient(
-      rgba(100, 100, 100, 0.4),
-      rgba(100, 100, 100, 0.4)
+      rgba(50, 50, 50, 0.4),
+      rgba(50, 50, 50, 0.4)
     ),
-    url(https://images.unsplash.com/photo-1600633349333-eebb43d01e23);
+    url(./images/photo-1600633349333-eebb43d01e23.jpg);
   background-size: 100%;
   text-shadow: 1px 0px 5px rgba(255, 255, 255, 0.25);
 }
 .countries-list {
-  padding-top: 150px;
-  list-style-type: none;
-  text-align: center;
+  display: block;
+  padding-left: 450px;
   font-weight: 700;
+  font-size: 18px;
+}
+.countries-list__option {
+  margin-top: 20px;
 }
 .header {
   text-align: center;
@@ -31,20 +34,20 @@ body {
 .form {
   display: block;
   margin: 0 auto;
-  text-align: center;
 }
 
 .form__input {
+  display: block;
   margin: 0 auto;
   opacity: 0.5;
   height: 50px;
   width: 400px;
   font-size: 18px;
   border: 0;
-  text-align: center;
 }
 .stats-container {
   padding-top: 50px;
+  justify-content: center;
 }
 .stats-header {
   font-weight: 700;
@@ -82,4 +85,7 @@ body {
   padding: 40px;
   width: calc(100% / 3);
   height: 100%;
+}
+.pnotify-container {
+  margin: 0 auto;
 }
