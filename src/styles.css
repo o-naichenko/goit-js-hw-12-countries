@@ -9,12 +9,77 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-image: linear-gradient(
+      rgba(100, 100, 100, 0.4),
+      rgba(100, 100, 100, 0.4)
+    ),
+    url(https://images.unsplash.com/photo-1600633349333-eebb43d01e23);
+  background-size: 100%;
+  text-shadow: 1px 0px 5px rgba(255, 255, 255, 0.25);
+}
+.countries-list {
+  padding-top: 150px;
+  list-style-type: none;
+  text-align: center;
+  font-weight: 700;
+}
+.header {
+  text-align: center;
+}
+.form {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  /*
-   * CSS image reference example.
-   */
-  background-image: url('./images/bg-pattern.png');
+.form__input {
+  margin: 0 auto;
+  opacity: 0.5;
+  height: 50px;
+  width: 400px;
+  font-size: 18px;
+  border: 0;
+  text-align: center;
+}
+.stats-container {
+  padding-top: 50px;
+}
+.stats-header {
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.stats__list {
+  display: block;
+  margin: 0;
+  padding: 40px;
+  list-style-type: none;
+  font-size: 28px;
+}
+.stats__item {
+  font-weight: 700;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 14px;
+}
+.stats__value {
+  font-weight: 400;
+  font-size: 36px;
+}
+.stats__value--lang {
+  text-align: center;
+}
+.flag {
+  display: block;
+  padding: 40px;
+  width: calc(100% / 3);
+  height: 100%;
 }
